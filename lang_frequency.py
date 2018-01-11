@@ -9,8 +9,8 @@ def load_data(filepath):
         return "".join(file.readlines())
 
 
-def get_most_frequent_words(text):
-    return Counter(text.lower().split()).most_common(10)
+def get_most_frequent_words(text, return_words_count=10):
+    return Counter(text.lower().split()).most_common(return_words_count)
 
 
 if __name__ == '__main__':
