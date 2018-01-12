@@ -1,6 +1,6 @@
 # Frequency Analysis of Words
 
-Отображает список 10 самых повторяющихся слов в текстовом файле
+Displays a list of the most repeated words in a text file
 
 # How to run
 
