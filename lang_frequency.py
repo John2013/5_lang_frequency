@@ -9,7 +9,7 @@ def load_data(filepath):
 
 
 def get_most_frequent_words(text, words_count=10):
-    words = re.findall(r"[a-zа-я]+", text.lower())
+    words = re.findall(r"[a-zа-я\-]+", text.lower())
     return Counter(words).most_common(words_count)
 
 
