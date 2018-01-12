@@ -1,27 +1,35 @@
 from collections import Counter
-from pprint import pprint
-
-from os.path import isfile
+import sys
+import re
 
 
 def load_data(filepath):
     with open(filepath, encoding="utf-8") as file:
-        return "".join(file.readlines())
+        return file.read()
 
 
-def get_most_frequent_words(text, return_words_count=10):
-    return Counter(text.lower().split()).most_common(return_words_count)
+def get_most_frequent_words(text, words_count=10):
+    is_word = re.compile(r'^[a-zа-я]+$')
+    words = [word for word in text.lower().split() if is_word.match(word)]
+    return Counter(words).most_common(words_count)
 
+
+def print_words(most_common):
+    for word, count in most_common:
+        print("{} - {} повторений".format(word, count))
 
 if __name__ == '__main__':
-    while True:
-        filepath = input("Enter the file path: ")
-        if isfile(filepath):
-            break
-        else:
-            print("There is no file at the specified path")
+    filepath, text = "", ""
 
-    text = load_data(filepath)
+    if len(sys.argv) > 1:
+        filepath = sys.argv[1]
+    else:
+        exit("Ошибка: Отсутствует путь к файлу")
 
-    print("The most popular words in this file:")
-    pprint(get_most_frequent_words(text))
+    try:
+        text = load_data(filepath)
+    except FileNotFoundError:
+        exit("Ошибка: файл не найден")
+
+    print("Самые популярные слова в файле:")
+    print_words(get_most_frequent_words(text))
