@@ -9,8 +9,7 @@ def load_data(filepath):
 
 
 def get_most_frequent_words(text, words_count=10):
-    is_word = re.compile(r"^[a-zа-я]+$")
-    words = [word for word in text.lower().split() if is_word.match(word)]
+    words = re.findall(r"[a-zа-я]+", text.lower())
     return Counter(words).most_common(words_count)
 
 
@@ -20,8 +19,6 @@ def print_words(most_common):
 
 
 if __name__ == '__main__':
-    filepath, text = "", ""
-
     if len(sys.argv) > 1:
         filepath = sys.argv[1]
     else:
