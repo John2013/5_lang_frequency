@@ -1,28 +1,27 @@
 # Frequency Analysis of Words
 
-Displays a list of the most repeated words in a text file
+Отображает список 10 самых повторяющихся слов в текстовом файле
 
 # How to run
 
 ```bash
-$ python lang_frequency  # or python3
+$ python lang_frequency <text_file>  # or python3
 ```
 
 Example:
 ```bash
-$ python lang_frequency
-Enter the file path: book1.txt
-The most popular words in this file:
-[('и', 10200),
- ('–', 8186),
- ('в', 5285),
- ('не', 4383),
- ('что', 3698),
- ('на', 3373),
- ('он', 3178),
- ('с', 3087),
- ('как', 2075),
- ('я', 1836)]
+$ python lang_frequency book1.txt
+Самые популярные слова в файле:
+и - 10200 повторений
+в - 5285 повторений
+не - 4383 повторений
+что - 3698 повторений
+на - 3373 повторений
+он - 3178 повторений
+с - 3087 повторений
+как - 2075 повторений
+я - 1836 повторений
+к - 1799 повторений
 ```
 
 
